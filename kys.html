@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>For Kayes</title>
+  <style>
+    :root {
+      --bg-start: #ff2d55; /* red */
+      --bg-end: #ff92c2;   /* pink */
+      --text: #fff5fa;
+      --button-bg: rgba(255, 255, 255, 0.2);
+      --button-text: #ffffff;
+      --button-hover: rgba(255, 255, 255, 0.3);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      height: 100%;
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      color: var(--text);
+      background: linear-gradient(135deg, var(--bg-start), var(--bg-end));
+    }
+
+    .container {
+      min-height: 100%;
+      display: grid;
+      place-items: center;
+      padding: 40px 20px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card {
+      width: min(560px, 92vw);
+      padding: 32px 28px;
+      text-align: center;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 20px;
+      backdrop-filter: blur(6px);
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 1;
+    }
+
+    .title {
+      margin: 0 0 18px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: 0.3px;
+    }
+
+    /* Hidden checkbox to control visibility with CSS only */
+    #toggle { position: absolute; opacity: 0; pointer-events: none; }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 22px;
+      border-radius: 999px;
+      background: var(--button-bg);
+      color: var(--button-text);
+      border: 1px solid rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      user-select: none;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: transform 0.15s ease, background 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .btn:hover { background: var(--button-hover); transform: translateY(-1px); }
+    .btn:active { transform: translateY(0); }
+
+    .message {
+      margin-top: 18px;
+      font-size: 32px;
+      font-weight: 800;
+      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+      opacity: 0;
+      transform: translateY(8px) scale(0.98);
+      transition: opacity 220ms ease, transform 220ms ease;
+    }
+
+    /* Reveal the message when checkbox checked */
+    #toggle:checked ~ .message {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+
+    /* Decorative floating emojis */
+    .floaties { position: absolute; inset: 0; pointer-events: none; }
+    .emoji { position: absolute; font-size: clamp(18px, 3vw, 28px); opacity: 0.9; filter: drop-shadow(0 2px 6px rgba(0,0,0,0.25)); }
+    .e1 { top: 6%; left: 8%; }
+    .e2 { top: 14%; right: 10%; }
+    .e3 { bottom: 12%; left: 14%; }
+    .e4 { bottom: 8%; right: 8%; }
+    .e5 { top: 50%; left: 4%; transform: translateY(-50%); }
+    .e6 { top: 50%; right: 4%; transform: translateY(-50%); }
+
+    @keyframes drift {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+      100% { transform: translateY(0); }
+    }
+    .emoji { animation: drift 4s ease-in-out infinite; }
+    .e2 { animation-duration: 5.5s; }
+    .e3 { animation-duration: 6.2s; }
+    .e4 { animation-duration: 5.0s; }
+    .e5 { animation-duration: 6.8s; }
+    .e6 { animation-duration: 5.8s; }
+  </style>
+  <meta name="theme-color" content="#ff2d55" />
+</head>
+<body>
+  <div class="container">
+    <!-- Floating decoration -->
+    <div class="floaties" aria-hidden="true">
+      <span class="emoji e1">❤️</span>
+      <span class="emoji e2">🌹</span>
+      <span class="emoji e3">💖</span>
+      <span class="emoji e4">🌹</span>
+      <span class="emoji e5">💕</span>
+      <span class="emoji e6">💘</span>
+    </div>
+
+    <div class="card">
+      <h1 class="title">Tap the button, sayang ✨</h1>
+
+      <input id="toggle" type="checkbox" />
+      <label class="btn" for="toggle">tekan ini</label>
+
+      <div class="message">i love you kayes</div>
+    </div>
+  </div>
+</body>
+<!-- Made with ♥ only HTML + CSS -->
+</html>
